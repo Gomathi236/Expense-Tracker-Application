@@ -1,7 +1,7 @@
 let getExpensePage = (req,res) =>{
-    return res.render("expenses.ejs")
+    return res.render("expenses.ejs");
 };
 
 module.exports = {
-    getExpensePage: getExpensePage
+    getExpensePage:getExpensePage
 }
