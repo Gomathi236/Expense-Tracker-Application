@@ -24,7 +24,7 @@ let createNewUser = async (req,res)=>{
 
     try{
         let newUser ={
-            fullname: req.bodyfullName,
+            fullname: req.body.fullName,
             email: req.body.email,
             password: req.body.password
         };

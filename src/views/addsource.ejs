@@ -4,13 +4,23 @@
             Add Source
         </title>
         <link rel="stylesheet" href="/public/css/addsource.css">
+        <script>
+            const queryString = window.location.search;
+            console.log(queryString);
+            const urlParams = new URLSearchParams(queryString);
+            const emp = urlParams.get('idx')
+
+            let employee ={
+                source : source.value
+            }
+        </script>
     </head>
     <body>
         <h1>
             ADD SOURCE
         </h1>
         <div class="box">
-        <form class="form" >
+        <form class="form" method="POST" action="/income" >
             <table>
            <tr>
                <td><label>Source Type:</label></td><br/>

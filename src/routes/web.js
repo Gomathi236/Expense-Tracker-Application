@@ -7,6 +7,8 @@ import auth from "../validation/authValidation"
 import passport from "passport";
 import initPassportLocal from "../controllers/passportLocalController"
 import connection from "../configs/connectDB"
+import profileController from "../controllers/profileController";
+import contactusController from "../controllers/contactusController";
 
 
 let router = express.Router();
@@ -26,6 +28,13 @@ let initWebRoutes = (app) =>{
     }));
     router.get("/signup",signupController.getsignupPage);
     router.post("/signup",auth.validateSignup, signupController.createNewUser);
+    router.get("/addsource",(req,res)=>{
+      res.render("addsource.ejs")
+    })
+    router.get("/addexpenses",(req,res)=>{
+      res.render("category.ejs")
+    })
+    
     
     app.get('/income', function(req, res, next) {
         res.render('income');
@@ -57,7 +66,7 @@ let initWebRoutes = (app) =>{
        
       app.post('/expenses', function(req, res, next) {
         var date = req.body.date;
-        var category = req.body.category;
+        var category = req.body.Category;
         var description = req.body.description;
         var amount = req.body.amount;
        
@@ -69,6 +78,9 @@ let initWebRoutes = (app) =>{
           res.redirect("/home");
         });
       });
+
+     router.get("/profile",profileController.getProfilePage)
+     router.get("/contactus",contactusController.getContactPage)
 
     router.post("/logout",loginController.postLogOut);
    
